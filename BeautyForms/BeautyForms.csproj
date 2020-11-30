@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6CE992EC-322E-46FC-9509-6063636D82CC}</ProjectGuid>
+    <ProjectGuid>{6842203D-4281-4C41-8005-91E13C7C8B0F}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>WFClient</RootNamespace>
-    <AssemblyName>WFClient</AssemblyName>
+    <RootNamespace>BeautyForms</RootNamespace>
+    <AssemblyName>BeautyForms</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -33,9 +33,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,30 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\ControllerFormAuth.cs" />
-    <Compile Include="Controller\ControllerFormMain.cs" />
-    <Compile Include="Model\APIWorker.cs" />
-    <Compile Include="Model\DataStorage.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="View\FormMain.cs">
+    <Compile Include="FormMain.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormMain.Designer.cs">
+    <Compile Include="FormMain.Designer.cs">
       <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\FormTransferController.cs">
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FormTransferController.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\FormTransferController.Designer.cs">
+    <Compile Include="FormTransferController.Designer.cs">
       <DependentUpon>FormTransferController.cs</DependentUpon>
     </Compile>
-    <Compile Include="View\WFClient.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="View\WFClient.Designer.cs">
-      <DependentUpon>WFClient.cs</DependentUpon>
-    </Compile>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -82,16 +72,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="View\FormMain.resx">
-      <DependentUpon>FormMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="View\FormTransferController.resx">
+    <EmbeddedResource Include="FormTransferController.resx">
       <DependentUpon>FormTransferController.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="View\WFClient.resx">
-      <DependentUpon>WFClient.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -104,21 +87,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <ProjectReference Include="..\ClientLibrary\ClientLibrary.csproj">
-      <Project>{f2e4bbca-7fb8-4ede-9a54-c726aadcff9b}</Project>
-      <Name>ClientLibrary</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CommunicationEntities\CommunicationEntities.csproj">
-      <Project>{e3d1cbfa-d314-4830-9dea-0f1d7e6c0ab3}</Project>
-      <Name>CommunicationEntities</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\DBEntities\DBEntities.csproj">
-      <Project>{ce667e16-9224-4378-98fe-f33d5393a96d}</Project>
-      <Name>DBEntities</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -27,7 +27,7 @@ namespace WFClient.Controller
 
 		public void UpdateLabel()
 		{
-			form.label1.Text = user.Name;
+			form.labelWelcome.Text = $"Welcome, {user.Name}!";
 		}
 		public void CloseUp()
 		{
@@ -35,7 +35,8 @@ namespace WFClient.Controller
 		}
 		public async Task CardsGetCardsByUserId()
 		{
-			form.buttonGetCards.Enabled = false;
+			//Task.Run(() => { System.Threading.Thread.Sleep(5000); });
+			//form.buttonGetCards.Enabled = false;
 
 			Response response = await API.CardsGetCardsByUserId(user.Id);
 
@@ -50,7 +51,7 @@ namespace WFClient.Controller
 			{
 				MessageBox.Show($"Error {response.Data}");
 			}
-			form.buttonGetCards.Enabled = true;
+			//form.buttonGetCards.Enabled = true;
 		}
 
 	}

@@ -1,16 +1,17 @@
-﻿namespace WFClient.View
+﻿
+namespace BeautyForms
 {
 	partial class FormMain
 	{
 		/// <summary>
-		/// Required designer variable.
+		/// Обязательная переменная конструктора.
 		/// </summary>
 		private System.ComponentModel.IContainer components = null;
 
 		/// <summary>
-		/// Clean up any resources being used.
+		/// Освободить все используемые ресурсы.
 		/// </summary>
-		/// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+		/// <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
 		protected override void Dispose(bool disposing)
 		{
 			if (disposing && (components != null))
@@ -19,7 +20,6 @@
 			}
 			base.Dispose(disposing);
 		}
-
 
 		#region Код, автоматически созданный конструктором форм Windows
 
@@ -37,12 +37,12 @@
 			this.panelCardList = new System.Windows.Forms.Panel();
 			this.tableLayoutPanelFloor = new System.Windows.Forms.TableLayoutPanel();
 			this.tableLayoutPanelSideMenu = new System.Windows.Forms.TableLayoutPanel();
-			this.panelTransfer = new System.Windows.Forms.Panel();
 			this.buttonTransfer = new System.Windows.Forms.Button();
-			this.panelCreateNewCard = new System.Windows.Forms.Panel();
 			this.buttonCreateNewCard = new System.Windows.Forms.Button();
-			this.panelAddMoney = new System.Windows.Forms.Panel();
 			this.buttonAddMoney = new System.Windows.Forms.Button();
+			this.panelTransfer = new System.Windows.Forms.Panel();
+			this.panelCreateNewCard = new System.Windows.Forms.Panel();
+			this.panelAddMoney = new System.Windows.Forms.Panel();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridViewCardsList)).BeginInit();
 			this.tableLayoutPanelCardList.SuspendLayout();
 			this.panelCardList.SuspendLayout();
@@ -105,7 +105,7 @@
 			this.buttonShowHideMenu.TabIndex = 3;
 			this.buttonShowHideMenu.Text = "Show\r\nMenu";
 			this.buttonShowHideMenu.UseVisualStyleBackColor = true;
-			this.buttonShowHideMenu.Click += new System.EventHandler(this.buttonShowHideMenu_Click);
+			this.buttonShowHideMenu.Click += new System.EventHandler(this.buttonGetCards_Click);
 			// 
 			// tableLayoutPanelCardList
 			// 
@@ -128,6 +128,7 @@
 			this.tableLayoutPanelCardList.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
 			this.tableLayoutPanelCardList.Size = new System.Drawing.Size(849, 707);
 			this.tableLayoutPanelCardList.TabIndex = 4;
+			this.tableLayoutPanelCardList.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
 			// 
 			// panelCardList
 			// 
@@ -180,6 +181,40 @@
 			this.tableLayoutPanelSideMenu.Size = new System.Drawing.Size(205, 707);
 			this.tableLayoutPanelSideMenu.TabIndex = 5;
 			// 
+			// buttonTransfer
+			// 
+			this.buttonTransfer.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.buttonTransfer.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Bold);
+			this.buttonTransfer.Location = new System.Drawing.Point(4, 5);
+			this.buttonTransfer.Name = "buttonTransfer";
+			this.buttonTransfer.Size = new System.Drawing.Size(189, 127);
+			this.buttonTransfer.TabIndex = 0;
+			this.buttonTransfer.Text = "Transfer";
+			this.buttonTransfer.UseVisualStyleBackColor = true;
+			this.buttonTransfer.Click += new System.EventHandler(this.button1_Click);
+			// 
+			// buttonCreateNewCard
+			// 
+			this.buttonCreateNewCard.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.buttonCreateNewCard.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Bold);
+			this.buttonCreateNewCard.Location = new System.Drawing.Point(4, 4);
+			this.buttonCreateNewCard.Name = "buttonCreateNewCard";
+			this.buttonCreateNewCard.Size = new System.Drawing.Size(189, 128);
+			this.buttonCreateNewCard.TabIndex = 1;
+			this.buttonCreateNewCard.Text = "Create\r\nNew Card";
+			this.buttonCreateNewCard.UseVisualStyleBackColor = true;
+			// 
+			// buttonAddMoney
+			// 
+			this.buttonAddMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
+			this.buttonAddMoney.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Bold);
+			this.buttonAddMoney.Location = new System.Drawing.Point(4, 4);
+			this.buttonAddMoney.Name = "buttonAddMoney";
+			this.buttonAddMoney.Size = new System.Drawing.Size(189, 124);
+			this.buttonAddMoney.TabIndex = 2;
+			this.buttonAddMoney.Text = "Add\r\nMoney";
+			this.buttonAddMoney.UseVisualStyleBackColor = true;
+			// 
 			// panelTransfer
 			// 
 			this.panelTransfer.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -191,18 +226,6 @@
 			this.panelTransfer.Name = "panelTransfer";
 			this.panelTransfer.Size = new System.Drawing.Size(199, 138);
 			this.panelTransfer.TabIndex = 3;
-			// 
-			// buttonTransfer
-			// 
-			this.buttonTransfer.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.buttonTransfer.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Bold);
-			this.buttonTransfer.Location = new System.Drawing.Point(4, 5);
-			this.buttonTransfer.Name = "buttonTransfer";
-			this.buttonTransfer.Size = new System.Drawing.Size(189, 127);
-			this.buttonTransfer.TabIndex = 0;
-			this.buttonTransfer.Text = "Transfer";
-			this.buttonTransfer.UseVisualStyleBackColor = true;
-			this.buttonTransfer.Click += new System.EventHandler(this.buttonTransfer_Click);
 			// 
 			// panelCreateNewCard
 			// 
@@ -216,18 +239,6 @@
 			this.panelCreateNewCard.Size = new System.Drawing.Size(199, 138);
 			this.panelCreateNewCard.TabIndex = 4;
 			// 
-			// buttonCreateNewCard
-			// 
-			this.buttonCreateNewCard.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.buttonCreateNewCard.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Bold);
-			this.buttonCreateNewCard.Location = new System.Drawing.Point(4, 4);
-			this.buttonCreateNewCard.Name = "buttonCreateNewCard";
-			this.buttonCreateNewCard.Size = new System.Drawing.Size(189, 128);
-			this.buttonCreateNewCard.TabIndex = 1;
-			this.buttonCreateNewCard.Text = "Create\r\nNew Card";
-			this.buttonCreateNewCard.UseVisualStyleBackColor = true;
-			this.buttonCreateNewCard.Click += new System.EventHandler(this.buttonCreateNewCard_Click);
-			// 
 			// panelAddMoney
 			// 
 			this.panelAddMoney.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -239,18 +250,6 @@
 			this.panelAddMoney.Name = "panelAddMoney";
 			this.panelAddMoney.Size = new System.Drawing.Size(199, 138);
 			this.panelAddMoney.TabIndex = 5;
-			// 
-			// buttonAddMoney
-			// 
-			this.buttonAddMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
-			this.buttonAddMoney.Font = new System.Drawing.Font("Elephant", 10.2F, System.Drawing.FontStyle.Bold);
-			this.buttonAddMoney.Location = new System.Drawing.Point(4, 4);
-			this.buttonAddMoney.Name = "buttonAddMoney";
-			this.buttonAddMoney.Size = new System.Drawing.Size(189, 124);
-			this.buttonAddMoney.TabIndex = 2;
-			this.buttonAddMoney.Text = "Add\r\nMoney";
-			this.buttonAddMoney.UseVisualStyleBackColor = true;
-			this.buttonAddMoney.Click += new System.EventHandler(this.buttonAddMoney_Click);
 			// 
 			// FormMain
 			// 
@@ -292,3 +291,4 @@
 		private System.Windows.Forms.Panel panelTransfer;
 	}
 }
+

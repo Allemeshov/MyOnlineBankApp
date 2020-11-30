@@ -22,7 +22,6 @@ namespace ConsoleServer.Tools
 
 			if (request.Parameters != "{}")
 			{
-				//TODO проверить на точке остановы что в request.Parameters
 				response = (Response)type.InvokeMember(methodName, BindingFlags.InvokeMethod | BindingFlags.Static | BindingFlags.Public, null, null, new object[] { request.Parameters });
 			}
 			else

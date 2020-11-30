@@ -24,6 +24,10 @@ namespace ConsoleServer.Controllers
 				Data = JsonConvert.SerializeObject(cards)
 			};
 		}
+		public static Response CreateNewCard(string parameters)
+		{
+
+		}
 
 	}
 }

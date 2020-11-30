@@ -12,7 +12,7 @@ namespace DbWorker.Tables
 {
     public class TableCards
     {
-        // TODO 1)Transit money from card to another one. 2) Redo method CreateNewCard with checking for a unique number. 3) Add money to a card.
+        // TODO 1)Transfer money from card to another one. 2) Redo method CreateNewCard with checking for a unique number. 3) Add money to a card.
         public List<Card> GetCardsByUserId(int userId)
         {
             try

@@ -47,15 +47,7 @@ namespace ConsoleServer
 			}
 			catch (Exception e)
 			{
-                response = new Response()
-                {
-                    Status = Response.StatusList.ERROR,
-                    Data = e.Message
-                };
-
-                Log($"Request failed: {e.Message}");
-
-                SendResponse(clientContext, response);
+                FinishWithError(clientContext, e.Message);
 
                 return;
 			}
@@ -73,23 +65,26 @@ namespace ConsoleServer
 			}
 			catch (Exception e)
 			{
-                //TODO Напомнить Алексею поставить урок на запись
-                //TODO инкапсулировать
-                response = new Response()
-                {
-                    Status = Response.StatusList.ERROR,
-                    Data = e.Message
-                };
+				//TODO Напомнить Алексею поставить урок на запись
+				FinishWithError(clientContext, e.Message);
 
-                Log($"Request failed: {e.Message}");
+				return;
+			}
+		}
 
-                SendResponse(clientContext, response);
+		private static void FinishWithError(HttpListenerContext clientContext, string errorMsg)
+		{
+			Response response = new Response()
+			{
+				Status = Response.StatusList.ERROR,
+				Data = errorMsg
+			};
+			Log($"Request failed: {errorMsg}");
 
-                return;
-            }
-        }
+			SendResponse(clientContext, response);
+		}
 
-        static void Main(string[] args)
+		static void Main(string[] args)
         {
             Server server = null;
 

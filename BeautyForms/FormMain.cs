@@ -7,45 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using WFClient.Controller;
 
-namespace WFClient.View
+namespace BeautyForms
 {
 	enum MenuStatusBar
 	{
 		Shown,
 		Hidden
 	}
-
 	public partial class FormMain : Form
 	{
 		private MenuStatusBar menuStatus = MenuStatusBar.Hidden;
 		private int initialWidth;
-
-		private ControllerFormMain controller;
 		public FormMain()
 		{
 			InitializeComponent();
 
 			initialWidth = this.tableLayoutPanelCardList.Width + 19;
 			this.Width = initialWidth;
-
 		}
-
-		private void FormMain_Load(object sender, EventArgs e)
-		{
-			controller = new ControllerFormMain(this);
-			controller.UpdateLabel();
-
-			GetCards();
-		}
-
-		private void FormMain_FormClosing(object sender, FormClosingEventArgs e)
-		{
-			controller.CloseUp();
-		}
-
-		private void buttonShowHideMenu_Click(object sender, EventArgs e)
+		//853
+		private void buttonGetCards_Click(object sender, EventArgs e)
 		{
 			menuStatus = (MenuStatusBar)(((int)menuStatus + 1) % 2);
 
@@ -66,31 +48,16 @@ namespace WFClient.View
 			}
 
 			buttonShowHideMenu.Text = title;
-
 		}
-		private async void GetCards()
+
+		private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
 		{
-			await controller.CardsGetCardsByUserId();
+
 		}
 
-		private void buttonTransfer_Click(object sender, EventArgs e)
+		private void button1_Click(object sender, EventArgs e)
 		{
 			new FormTransferController().Show();
-			//TODO Make enw form for transfering
-			//TODO Make transfering
-
-		}
-
-		private void buttonCreateNewCard_Click(object sender, EventArgs e)
-		{
-			// TODO Make new form for creating cards
-			// TODO Make creating cards
-		}
-
-		private void buttonAddMoney_Click(object sender, EventArgs e)
-		{
-			// TODO Make new form for adding money
-			// TODO Make adding money
 		}
 	}
 }
